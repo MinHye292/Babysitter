@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import cat.vo.ResultVO.BabysitterResultVO;
 import cat.vo.ResultVO.ChildOldVO;
 import cat.vo.ResultVO.OldVO;
+import cat.vo.ResultVO.TypeVO;
 import cat.vo.ResultVO.BabysitterResultChildVO;
 
 @Mapper
@@ -18,4 +19,5 @@ public interface BabysitterResultMapper {
     public List<String> selectBabysitterResultDates();
     public void insertBabysitterChildOld(ChildOldVO vo);
     public List<OldVO> selectBabysitterChildOld(String date);
+    public List<TypeVO> selectBabysitterType(String date);
 }

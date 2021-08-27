@@ -61,6 +61,10 @@
                 <h1>아동 나이대 현황</h1>
                 <canvas id="ChildOldChart" style="width:100%; height:100%;"></canvas>
             </div>
+            <div class="content_area chart_content">
+                <h1>가정별 현황</h1>
+                <canvas id="TypeChart" style="width:100%; height:100%;"></canvas>
+            </div>
         </div>
     </div>
 </body>

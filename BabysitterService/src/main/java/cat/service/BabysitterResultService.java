@@ -10,6 +10,7 @@ import cat.vo.ResultVO.BabysitterResultChildVO;
 import cat.vo.ResultVO.BabysitterResultVO;
 import cat.vo.ResultVO.ChildOldVO;
 import cat.vo.ResultVO.OldVO;
+import cat.vo.ResultVO.TypeVO;
 
 @Service
 public class BabysitterResultService {
@@ -32,5 +33,8 @@ public class BabysitterResultService {
     }
     public List<OldVO> selectBabysitterChildOld(String date){
         return mapper.selectBabysitterChildOld(date);
+    }
+    public List<TypeVO> selectBabysitterType(String date){
+        return mapper.selectBabysitterType(date);
     }
 }

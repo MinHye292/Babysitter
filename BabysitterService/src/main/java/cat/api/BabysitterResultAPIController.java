@@ -24,6 +24,7 @@ import cat.vo.ResultVO.BabysitterResultChildVO;
 import cat.vo.ResultVO.BabysitterResultVO;
 import cat.vo.ResultVO.ChildOldVO;
 import cat.vo.ResultVO.OldVO;
+import cat.vo.ResultVO.TypeVO;
 
 @RestController
 public class BabysitterResultAPIController {
@@ -222,6 +223,16 @@ public class BabysitterResultAPIController {
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
 
         List<OldVO> list = service.selectBabysitterChildOld(date);
+        resultMap.put("list", list);
+
+        return resultMap;
+    }
+    @GetMapping("/api/type")
+    public Map<String, Object> getType(@RequestParam String date) {
+        System.out.println(date);
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+
+        List<TypeVO> list = service.selectBabysitterType(date);
         resultMap.put("list", list);
 
         return resultMap;

@@ -125,4 +125,15 @@
         where crtrYm = #{date}
         group by crtrYm
     </select>
+    <select id="selectBabysitterType" resultType="cat.vo.ResultVO.TypeVO">
+        select
+            crtrYm,
+            sum(age0aAtypeChildCnt)+sum(age1aAtypeChildCnt)+sum(age2aAtypeChildCnt)+sum(age3aAtypeChildCnt)+sum(age4aAtypeChildCnt)+sum(age5aAtypeChildCnt)+sum(age6aAtypeChildCnt)+sum(age7aAtypeChildCnt)+sum(age8aAtypeChildCnt)+sum(age9aAtypeChildCnt)+sum(age10aAtypeChildCnt)+sum(age11aAtypeChildCnt)+sum(age12aAtypeChildCnt) as Atype,
+            sum(age0aBtypeChildCnt)+sum(age1aBtypeChildCnt)+sum(age2aBtypeChildCnt)+sum(age3aBtypeChildCnt)+sum(age4aBtypeChildCnt)+sum(age5aBtypeChildCnt)+sum(age6aBtypeChildCnt)+sum(age7aBtypeChildCnt)+sum(age8aBtypeChildCnt)+sum(age9aBtypeChildCnt)+sum(age10aBtypeChildCnt)+sum(age11aBtypeChildCnt)+sum(age12aBtypeChildCnt) as Btype,
+            sum(age0aCtypeChildCnt)+sum(age1aCtypeChildCnt)+sum(age2aCtypeChildCnt)+sum(age3aCtypeChildCnt)+sum(age4aCtypeChildCnt)+sum(age5aCtypeChildCnt)+sum(age6aCtypeChildCnt)+sum(age7aCtypeChildCnt)+sum(age8aCtypeChildCnt)+sum(age9aCtypeChildCnt)+sum(age10aCtypeChildCnt)+sum(age11aCtypeChildCnt)+sum(age12aCtypeChildCnt) as Ctype,
+            sum(age0aDtypeChildCnt)+sum(age1aDtypeChildCnt)+sum(age2aDtypeChildCnt)+sum(age3aDtypeChildCnt)+sum(age4aDtypeChildCnt)+sum(age5aDtypeChildCnt)+sum(age6aDtypeChildCnt)+sum(age7aDtypeChildCnt)+sum(age8aDtypeChildCnt)+sum(age9aDtypeChildCnt)+sum(age10aDtypeChildCnt)+sum(age11aDtypeChildCnt)+sum(age12aDtypeChildCnt) as Dtype
+        from babysitter_childold
+        where crtrYm = #{date}
+        group by crtrYm
+    </select>
 </mapper>

@@ -19,7 +19,6 @@ $(function(){
         },
         data:null
     })
-    // $(function(){
         var BabysitterChildOldChart = new Chart($("#ChildOldChart"), {
             type:"bar",
             options:{
@@ -36,10 +35,26 @@ $(function(){
                 }],
             }
         })
-    // })
+        var BabysitterTypeChart = new Chart($("#TypeChart"), {
+            type:"bar",
+            options:{
+                responsive:false,
+            },
+            data:{
+                labels:null,
+                datasets:[{
+                    label:'가정별 실적현황',
+                    data:null,
+                    backgroundColor:[
+                        'rgba(30, 30, 255, 0.7)'
+                    ]
+                }],
+            }
+        })
 
     getBabysitterData();
     getChildOld(BabysitterChildOldChart);
+    getType(BabysitterTypeChart);
     $("#babysitterDate").change(getBabysitterData)
     $("#babysitterRegion").change(getBabysitterData)
 
@@ -71,6 +86,34 @@ $(function(){
                 chart.data.labels = [
                     "0세", "1세", "2세", "3세", "4세", "5세", 
                 "6세", "7세", "8세", "9세", "10세", "11세", "12세"
+                ]; // 레이블 교체
+                chart.data.datasets.push({
+                    label:date+' 신청현황', 
+                    data:dataList,
+                    backgroundColor:['rgba(255, 30, 30, 0.7)']
+                });
+                chart.update();
+            }
+        })
+    }
+    function getType(chart) {
+        let date = $("#babysitterDate").find("option:selected").val();
+        console.log(date);
+        let url = "/api/type?date="+date;
+        $.ajax({
+            type:"get",
+            url:url,
+            success:function(r) {
+                console.log(r);
+                let dataList = new Array();
+                dataList.push(r.list[0].atype);
+                dataList.push(r.list[0].btype);
+                dataList.push(r.list[0].ctype);
+                dataList.push(r.list[0].dtype);
+    
+                chart.data.datasets = new Array(); // 데이터 셋 초기화
+                chart.data.labels = [
+                    "가형", "나형", "다형", "라형"
                 ]; // 레이블 교체
                 chart.data.datasets.push({
                     label:date+' 신청현황', 
@@ -118,5 +161,6 @@ $(function(){
             }
         });
         getChildOld(BabysitterChildOldChart);
+        getType(BabysitterTypeChart);
     }
 })
