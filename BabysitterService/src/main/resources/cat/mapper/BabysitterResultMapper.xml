@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cat.mapper.BabysitterResultMapper">
+    <insert id="insertBabysitterResult">
+        insert into babysitter_result
+        (
+            childCareInstNm, ilnsSrvcYn ,careDvsnNm, srvcDvsfctnNm,
+            upChildCareInstNm, childCnt, boyChildCnt, girlChildCnt, crtrYm
+        )
+        VALUES
+        (
+            #{childCareInstNm}, #{ilnsSrvcYn}, #{careDvsnNm}, #{srvcDvsfctnNm},
+            #{upChildCareInstNm}, #{childCnt}, #{boyChildCnt}, #{girlChildCnt}, #{crtrYm}
+        );
+    </insert>
+    <select id="selectBabysitterChild" resultType="cat.vo.ResultVO.BabysitterResultChildVO">
+    select crtrYm, region, sum(childCnt) as acc from
+        (
+        select *,   
+            case
+                when upChildCareInstNm ='강원도 광역거점' then '강원' 
+                when upChildCareInstNm ='경기도 광역거점' then '경기' 
+                when upChildCareInstNm ='경상남도 건강가정지원센터' then '경남' 
+                when upChildCareInstNm ='경상북도 광역거점' then '경북' 
+                when upChildCareInstNm ='충청남도 광역거점' then '충남' 
+                when upChildCareInstNm ='광주광역시 광역거점' then '광주' 
+                when upChildCareInstNm ='대구광역시 광역거점' then '대구' 
+                when upChildCareInstNm ='대전광역시 광역거점' then '대전' 
+                when upChildCareInstNm ='전라남도 광역거점' then '전남' 
+                when upChildCareInstNm ='부산광역시 광역거점' then '부산' 
+                when upChildCareInstNm ='전라북도 광역거점' then '전북' 
+                when upChildCareInstNm ='서울특별시 건강가정지원센터' then '서울' 
+                when upChildCareInstNm ='세종특별자치시 광역거점' then '세종' 
+                when upChildCareInstNm ='울산광역시 광역거점' then '울산' 
+                when upChildCareInstNm ='인천광역시 광역거점' then '인천' 
+                when upChildCareInstNm ='제주도 광역거점' then '제주' 
+                when upChildCareInstNm ='충청북도 광역거점' then '충북'
+            end as region
+        from babysitter_result
+        ) a where region = #{region} and crtrYm=#{date};
+    </select>
+    <select id="selectBabysitterChildGen" resultType="cat.vo.ResultVO.BabysitterResultChildVO">
+    select crtrYm, region, sum(boyChildCnt) as boyacc, sum(girlChildCnt) as girlacc from
+        (
+        select *,   
+            case
+                when upChildCareInstNm ='강원도 광역거점' then '강원' 
+                when upChildCareInstNm ='경기도 광역거점' then '경기' 
+                when upChildCareInstNm ='경상남도 건강가정지원센터' then '경남' 
+                when upChildCareInstNm ='경상북도 광역거점' then '경북' 
+                when upChildCareInstNm ='충청남도 광역거점' then '충남' 
+                when upChildCareInstNm ='광주광역시 광역거점' then '광주' 
+                when upChildCareInstNm ='대구광역시 광역거점' then '대구' 
+                when upChildCareInstNm ='대전광역시 광역거점' then '대전' 
+                when upChildCareInstNm ='전라남도 광역거점' then '전남' 
+                when upChildCareInstNm ='부산광역시 광역거점' then '부산' 
+                when upChildCareInstNm ='전라북도 광역거점' then '전북' 
+                when upChildCareInstNm ='서울특별시 건강가정지원센터' then '서울' 
+                when upChildCareInstNm ='세종특별자치시 광역거점' then '세종' 
+                when upChildCareInstNm ='울산광역시 광역거점' then '울산' 
+                when upChildCareInstNm ='인천광역시 광역거점' then '인천' 
+                when upChildCareInstNm ='제주도 광역거점' then '제주' 
+                when upChildCareInstNm ='충청북도 광역거점' then '충북'
+            end as region
+        from babysitter_result
+        ) a where region = #{region} and crtrYm= #{date};
+    </select>
+    <select id="selectBabysitterResultDates" resultType="java.lang.String">
+        select distinct crtrYm from babysitter_result order by crtrYm desc;
+    </select>
+    <insert id="insertBabysitterChildOld">
+        insert into babysitter_childOld
+        (
+            crtrYm, childCareInstNm, age0aAtypeChildCnt,age1aAtypeChildCnt,
+            age2aAtypeChildCnt, age3aAtypeChildCnt, age4aAtypeChildCnt, age5aAtypeChildCnt,
+            age6aAtypeChildCnt, age7aAtypeChildCnt, age8aAtypeChildCnt, age9aAtypeChildCnt,
+            age10aAtypeChildCnt, age11aAtypeChildCnt, age12aAtypeChildCnt, age0aBtypeChildCnt, 
+            age1aBtypeChildCnt, age2aBtypeChildCnt, age3aBtypeChildCnt, age4aBtypeChildCnt, 
+            age5aBtypeChildCnt, age6aBtypeChildCnt, age7aBtypeChildCnt, age8aBtypeChildCnt, 
+            age9aBtypeChildCnt, age10aBtypeChildCnt, age11aBtypeChildCnt, age12aBtypeChildCnt,
+            age0aCtypeChildCnt, age1aCtypeChildCnt, age2aCtypeChildCnt, age3aCtypeChildCnt, 
+            age4aCtypeChildCnt, age5aCtypeChildCnt, age6aCtypeChildCnt, age7aCtypeChildCnt,
+            age8aCtypeChildCnt, age9aCtypeChildCnt, age10aCtypeChildCnt, age11aCtypeChildCnt, 
+            age12aCtypeChildCnt, age0aDtypeChildCnt, age1aDtypeChildCnt, age2aDtypeChildCnt, 
+            age3aDtypeChildCnt, age4aDtypeChildCnt, age5aDtypeChildCnt, age6aDtypeChildCnt, 
+            age7aDtypeChildCnt, age8aDtypeChildCnt, age9aDtypeChildCnt, age10aDtypeChildCnt, 
+            age11aDtypeChildCnt,age12aDtypeChildCnt
+        )
+        VALUES
+        (
+            #{crtrYm}, #{childCareInstNm}, #{age0aAtypeChildCnt},#{age1aAtypeChildCnt},
+            #{age2aAtypeChildCnt}, #{age3aAtypeChildCnt}, #{age4aAtypeChildCnt}, #{age5aAtypeChildCnt},
+            #{age6aAtypeChildCnt}, #{age7aAtypeChildCnt}, #{age8aAtypeChildCnt}, #{age9aAtypeChildCnt},
+            #{age10aAtypeChildCnt}, #{age11aAtypeChildCnt}, #{age12aAtypeChildCnt}, #{age0aBtypeChildCnt}, 
+            #{age1aBtypeChildCnt}, #{age2aBtypeChildCnt}, #{age3aBtypeChildCnt}, #{age4aBtypeChildCnt}, 
+            #{age5aBtypeChildCnt}, #{age6aBtypeChildCnt}, #{age7aBtypeChildCnt}, #{age8aBtypeChildCnt}, 
+            #{age9aBtypeChildCnt}, #{age10aBtypeChildCnt}, #{age11aBtypeChildCnt}, #{age12aBtypeChildCnt},
+            #{age0aCtypeChildCnt}, #{age1aCtypeChildCnt}, #{age2aCtypeChildCnt}, #{age3aCtypeChildCnt}, 
+            #{age4aCtypeChildCnt}, #{age5aCtypeChildCnt}, #{age6aCtypeChildCnt}, #{age7aCtypeChildCnt},
+            #{age8aCtypeChildCnt}, #{age9aCtypeChildCnt}, #{age10aCtypeChildCnt}, #{age11aCtypeChildCnt}, 
+            #{age12aCtypeChildCnt}, #{age0aDtypeChildCnt}, #{age1aDtypeChildCnt}, #{age2aDtypeChildCnt}, 
+            #{age3aDtypeChildCnt}, #{age4aDtypeChildCnt}, #{age5aDtypeChildCnt}, #{age6aDtypeChildCnt}, 
+            #{age7aDtypeChildCnt}, #{age8aDtypeChildCnt}, #{age9aDtypeChildCnt}, #{age10aDtypeChildCnt}, 
+            #{age11aDtypeChildCnt},#{age12aDtypeChildCnt}
+        );
+    </insert>
+    <select id="selectBabysitterChildOld" resultType="cat.vo.ResultVO.OldVO">
+        select 
+            crtrYm,
+            sum(age0aAtypeChildCnt)+sum(age0aBtypeChildCnt)+sum(age0aCtypeChildCnt)+sum(age0aDtypeChildCnt) as age0,
+            sum(age1aAtypeChildCnt)+sum(age1aBtypeChildCnt)+sum(age1aCtypeChildCnt)+sum(age1aDtypeChildCnt) as age1,
+            sum(age2aAtypeChildCnt)+sum(age2aBtypeChildCnt)+sum(age2aCtypeChildCnt)+sum(age2aDtypeChildCnt) as age2,
+            sum(age3aAtypeChildCnt)+sum(age3aBtypeChildCnt)+sum(age3aCtypeChildCnt)+sum(age3aDtypeChildCnt) as age3,
+            sum(age4aAtypeChildCnt)+sum(age4aBtypeChildCnt)+sum(age4aCtypeChildCnt)+sum(age4aDtypeChildCnt) as age4,
+            sum(age5aAtypeChildCnt)+sum(age5aBtypeChildCnt)+sum(age5aCtypeChildCnt)+sum(age5aDtypeChildCnt) as age5,
+            sum(age6aAtypeChildCnt)+sum(age6aBtypeChildCnt)+sum(age6aCtypeChildCnt)+sum(age6aDtypeChildCnt) as age6,
+            sum(age7aAtypeChildCnt)+sum(age7aBtypeChildCnt)+sum(age7aCtypeChildCnt)+sum(age7aDtypeChildCnt) as age7,
+            sum(age8aAtypeChildCnt)+sum(age8aBtypeChildCnt)+sum(age8aCtypeChildCnt)+sum(age8aDtypeChildCnt) as age8,
+            sum(age9aAtypeChildCnt)+sum(age9aBtypeChildCnt)+sum(age9aCtypeChildCnt)+sum(age9aDtypeChildCnt) as age9,
+            sum(age10aAtypeChildCnt)+sum(age10aBtypeChildCnt)+sum(age10aCtypeChildCnt)+sum(age10aDtypeChildCnt) as age10,
+            sum(age11aAtypeChildCnt)+sum(age11aBtypeChildCnt)+sum(age11aCtypeChildCnt)+sum(age11aDtypeChildCnt) as age11,
+            sum(age12aAtypeChildCnt)+sum(age12aBtypeChildCnt)+sum(age12aCtypeChildCnt)+sum(age12aDtypeChildCnt) as age12
+        from babysitter_childold
+        where crtrYm = #{date}
+        group by crtrYm
+    </select>
+</mapper>

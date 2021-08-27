@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cat.mapper.BabysitterMapper">
+    <insert id="insertBabysitterTime">
+        insert into babysitter_time
+        (
+            seq, crtrYm, childCareInstNo, childCareInstNm, ilnsSrvcYn, careDvsnNm, srvcDvsfctnNm, 
+            upChildCareInstNo, upChildCareInstNm, grAplyNocs, hr02AplyNocs, hr24AplyNocs, hr46AplyNocs, 
+            hr68AplyNocs, hr810AplyNocs, hr1012AplyNocs, hr1214AplyNocs, hr1416AplyNocs, hr1618AplyNocs, 
+            hr1820AplyNocs, hr2022AplyNocs, hr2224AplyNocs, dataCrtYmd
+        )
+        VALUES
+        (
+            #{seq}, #{crtrYm}, #{childCareInstNo}, #{childCareInstNm}, #{ilnsSrvcYn}, #{careDvsnNm}, #{srvcDvsfctnNm}, 
+            #{upChildCareInstNo}, #{upChildCareInstNm}, #{grAplyNocs}, #{hr02AplyNocs}, #{hr24AplyNocs}, #{hr46AplyNocs}, 
+            #{hr68AplyNocs}, #{hr810AplyNocs}, #{hr1012AplyNocs}, #{hr1214AplyNocs}, #{hr1416AplyNocs}, #{hr1618AplyNocs}, 
+            #{hr1820AplyNocs}, #{hr2022AplyNocs}, #{hr2224AplyNocs}, #{dataCrtYmd}
+        );
+    </insert>
+    <select id="selectBabysitterMonthlyTime" resultType="cat.vo.BabysitterMonthlyTimeVO">
+        select * from
+        (
+            select 
+                sum(hr02AplyNocs) as hr02AplyNocs,
+                sum(hr24AplyNocs) as hr24AplyNocs,
+                sum(hr46AplyNocs) as hr46AplyNocs,
+                sum(hr68AplyNocs) as hr68AplyNocs,
+                sum(hr810AplyNocs) as hr810AplyNocs,
+                sum(hr1012AplyNocs) as hr1012AplyNocs,
+                sum(hr1214AplyNocs) as hr1214AplyNocs,
+                sum(hr1416AplyNocs) as hr1416AplyNocs,
+                sum(hr1618AplyNocs) as hr1618AplyNocs,
+                sum(hr1820AplyNocs) as hr1820AplyNocs,
+                sum(hr2022AplyNocs) as hr2022AplyNocs,
+                sum(hr2224AplyNocs) as hr2224AplyNocs,
+                crtrYm 
+            from babysitter_time 
+            group by crtrYm
+        ) a
+        where date_format(crtrYm,"%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+    </select>
+    <select id="selectBabysitterRegion" resultType="cat.vo.BabysitterRegionVO">
+        select crtrYm, region, sum(grAplyNocs) as acc from
+            (
+            select *,   
+                case
+                    when upChildCareInstNm ='강원도 광역거점' then '강원' 
+                    when upChildCareInstNm ='경기도 광역거점' then '경기' 
+                    when upChildCareInstNm ='경상남도 건강가정지원센터' then '경남' 
+                    when upChildCareInstNm ='경상북도 광역거점' then '경북' 
+                    when upChildCareInstNm ='충청남도 광역거점' then '충남' 
+                    when upChildCareInstNm ='광주광역시 광역거점' then '광주' 
+                    when upChildCareInstNm ='대구광역시 광역거점' then '대구' 
+                    when upChildCareInstNm ='대전광역시 광역거점' then '대전' 
+                    when upChildCareInstNm ='전라남도 광역거점' then '전남' 
+                    when upChildCareInstNm ='부산광역시 광역거점' then '부산' 
+                    when upChildCareInstNm ='전라북도 광역거점' then '전북' 
+                    when upChildCareInstNm ='서울특별시 건강가정지원센터' then '서울' 
+                    when upChildCareInstNm ='세종특별자치시 광역거점' then '세종' 
+                    when upChildCareInstNm ='울산광역시 광역거점' then '울산' 
+                    when upChildCareInstNm ='인천광역시 광역거점' then '인천' 
+                    when upChildCareInstNm ='제주도 광역거점' then '제주' 
+                    when upChildCareInstNm ='충청북도 광역거점' then '충북'
+                end as region
+            from babysitter_time
+            ) a where date_format(crtrYm,"%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+            group by region
+    </select>
+</mapper>
