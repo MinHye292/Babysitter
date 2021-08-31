@@ -155,7 +155,7 @@ $(function(){
                     label:'', 
                     // 바로 결과값을 데이터로 사용합니다.
                     data:[r.data.boyacc,r.data.girlacc],
-                    backgroundColor:['rgba(255, 30, 30, 0.7)','rgba(30, 30, 255, 0.7)']
+                    backgroundColor:['rgba(30, 30, 255, 0.7)','rgba(255, 30, 30, 0.7)']
                 });
                 genChart.update();
             }

@@ -17,6 +17,38 @@
     <script src="/assets/js/member.js"></script>
 </head>
 <body>
-    
+    <div class="container">
+        <%@include file="/WEB-INF/views/includes/menu.jsp"%>
+        <div class="dashboard_area">
+            <select id="babysitterRegionCnt">
+                <option value="서울특별시 건강가정지원센터">서울</option>
+                <option value="대구광역시 광역거점">대구</option>
+                <option value="강원도 광역거점">강원</option>
+                <option value="경기도 광역거점">경기</option>
+                <option value="경상남도 건강가정지원센터">경남</option>
+                <option value="경상북도 광역거점">경북</option>
+                <option value="충청남도 광역거점">충남</option>
+                <option value="광주광역시 광역거점">광주</option>
+                <option value="대전광역시 광역거점">대전</option>
+                <option value="전라남도 광역거점">전남</option>
+                <option value="부산광역시 광역거점">부산</option>
+                <option value="전라북도 광역거점">전북</option>
+                <option value="세종특별자치시 광역거점">세종</option>
+                <option value="울산광역시 광역거점">울산</option>
+                <option value="충청북도 광역거점">충북</option>
+                <option value="인천광역시 광역거점">인천</option>
+                <option value="제주도 광역거점">제주</option>         
+            </select>
+            <select id="babysitterDate">
+                <c:forEach items="${dateList}" var="item">
+                    <option value="${item}">${item}</option>
+                </c:forEach>
+            </select>
+            <div class="content_area chart_content">
+                <h1>지역별 전체회원</h1>
+                <canvas id="regionMemberCnt" style="width:100%; height:100%;"></canvas>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

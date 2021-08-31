@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cat.mapper.BabysitterMemberMapper">
-    <insert id="insertBabysitterMember">
+    <insert id="insertMember">
         insert into babysitter_member
         (
             crtrYm, childCareInstNo, upChildCareInstNm, whlMbrCnt
@@ -10,6 +10,14 @@
         VALUES
         (
             #{crtrYm}, #{childCareInstNo}, #{upChildCareInstNm}, #{whlMbrCnt}
-        );
+        )
     </insert>
+    <select id="selectregionCnt" resultType="cat.vo.MemberVO.MemberVO">
+        select upChildCareInstNm, crtrYm, sum(whlMbrCnt) as whlMbrCnt from babysitter_member
+        where 
+            upChildCareInstNm=#{region} 
+            and 
+            date_format(crtrYm,"%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
+        group by upChildCareInstNm, crtrYm
+    </select>
 </mapper>

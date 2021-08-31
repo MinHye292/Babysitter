@@ -4,6 +4,7 @@ import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -19,12 +20,14 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import cat.service.BabysitterMemberService;
+import cat.vo.MemberVO.MemberCntVO;
 import cat.vo.MemberVO.MemberVO;
 
 @RestController
 public class BabysitterMemberAPIController {
     @Autowired
     BabysitterMemberService service;
+
     @GetMapping("/api/member")
     public Map<String, Object> getMember(
         @RequestParam String crtrYmFrom, @RequestParam String crtrYmTo
@@ -37,7 +40,7 @@ public class BabysitterMemberAPIController {
         urlBuilder.append("&"+URLEncoder.encode("numOfRows", "UTF-8")+"="+URLEncoder.encode("100000", "UTF-8"));
         urlBuilder.append("&"+URLEncoder.encode("crtrYmFrom", "UTF-8")+"="+URLEncoder.encode(crtrYmFrom, "UTF-8"));
         urlBuilder.append("&"+URLEncoder.encode("crtrYmTo", "UTF-8")+"="+URLEncoder.encode(crtrYmTo, "UTF-8"));
-        
+        System.out.println(urlBuilder.toString());
         DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
         Document doc = docBuilder.parse(urlBuilder.toString());
@@ -54,29 +57,37 @@ public class BabysitterMemberAPIController {
             Node node = nList.item(i);
             Element elem = (Element) node;
 
-            System.out.println(getTagValue("crtrYm", elem));
-            System.out.println(getTagValue("upChildCareInstNm", elem));
-            System.out.println(getTagValue("childCareInstNo", elem));
-            System.out.println(getTagValue("whlMbrCnt", elem));
-
-            String upChildCareInstNm = getTagValue("upChildCareInstNm", elem);
             String childCareInstNo = getTagValue("childCareInstNo", elem);
+            String upChildCareInstNm = getTagValue("upChildCareInstNm", elem);
 
             MemberVO vo = new MemberVO();
             SimpleDateFormat formatter = new SimpleDateFormat("yyyyMM");
             Date dt = formatter.parse(getTagValue("crtrYm", elem));
-                
+            
             vo.setCrtrYm(dt);
 
-            vo.setUpChildCareInstNm(upChildCareInstNm);
             vo.setChildCareInstNo(childCareInstNo);
-            vo.setWhlMbrCnt(Integer.parseInt(getTagValue("whlMbrCnt", elem)));
-
-            service.insertBabysitterMember(vo);
+            vo.setUpChildCareInstNm(upChildCareInstNm);
+            // try{
+                vo.setWhlMbrCnt(Integer.parseInt(getTagValue("whlMbrCnt", elem)==null?"0":getTagValue("whlMbrCnt", elem)));
+            // }
+            // catch(NumberFormatException e) {
+                // vo.setWhlMbrCnt(0);
+            // }
+            service.insertMember(vo);
 
         }
         resultMap.put("status", true);
         resultMap.put("message", "데이터가 입력되었습니다.");
+        return resultMap;
+    }
+    @GetMapping("/api/MemberCnt")
+    public Map<String, Object> getMemberCnt(@RequestParam String date, @RequestParam String region) {
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+
+        List<MemberCntVO> list = service.selectregionCnt(region, date);
+        resultMap.put("list", list);
+
         return resultMap;
     }
     public static String getTagValue(String tag, Element elem) {
@@ -86,5 +97,5 @@ public class BabysitterMemberAPIController {
         Node node = (Node) nlList.item(0);
         if(node == null) return null;
         return node.getNodeValue();
-    } 
+    }
 }
