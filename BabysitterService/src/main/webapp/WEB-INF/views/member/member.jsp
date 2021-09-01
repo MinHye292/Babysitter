@@ -54,12 +54,15 @@
                     <option value="2020-12-01">2020년 12월</option>
                     <option value="2021-01-01">2021년 1월</option>
                     <option value="2021-02-01">2021년 2월</option>
-                    <option value="2021-03-01">2021년 3월</option>
                 </select>
             </div>
             <div class="content_area chart_content">
                 <h1>지역별 전체회원</h1>
                 <canvas id="regionMemberCnt" style="width:100%; height:100%;"></canvas>
+            </div>
+            <div class="content_area chart_content">
+                <h1>월별 회원 추이</h1>
+                <canvas id="MemberAllCnt" style="width:100%; height:100%;"></canvas>
             </div>
         </div>
     </div>

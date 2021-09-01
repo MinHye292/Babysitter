@@ -20,6 +20,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import cat.service.BabysitterMemberService;
+import cat.vo.MemberVO.MemberAllCntVO;
 import cat.vo.MemberVO.MemberCntVO;
 import cat.vo.MemberVO.MemberVO;
 
@@ -95,6 +96,19 @@ public class BabysitterMemberAPIController {
         }
 
         resultMap.put("data1", data1);
+
+        return resultMap;
+    }
+    @GetMapping("/api/MemberAllCnt")
+    public Map<String, Object> getMemberAllCnt(@RequestParam String date) {
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+
+        System.out.println(date);
+        
+        List<MemberAllCntVO> data2 = service.selectAllCnt(date);
+        System.out.println(data2.size());
+
+        resultMap.put("data2", data2);
 
         return resultMap;
     }

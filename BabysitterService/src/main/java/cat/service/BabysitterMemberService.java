@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cat.mapper.BabysitterMemberMapper;
+import cat.vo.MemberVO.MemberAllCntVO;
 import cat.vo.MemberVO.MemberCntVO;
 import cat.vo.MemberVO.MemberVO;
 
@@ -18,5 +19,8 @@ public class BabysitterMemberService {
     }
     public List<MemberCntVO> selectregionCnt(String date){
         return mapper.selectregionCnt(date);
+    }
+    public List<MemberAllCntVO> selectAllCnt(String date){
+        return mapper.selectAllCnt(date);
     }
 }
