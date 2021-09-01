@@ -1,12 +1,12 @@
 package cat.vo.MemberVO;
 
-import java.util.Date;
+// import java.util.Date;
 
 import lombok.Data;
 
 @Data
 public class MemberCntVO {
     private String upChildCareInstNm;
-    private Date crtrYm;
+    private String crtrYm;
     private Integer whlMbrCnt;
 }

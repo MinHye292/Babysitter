@@ -12,12 +12,9 @@
             #{crtrYm}, #{childCareInstNo}, #{upChildCareInstNm}, #{whlMbrCnt}
         )
     </insert>
-    <select id="selectregionCnt" resultType="cat.vo.MemberVO.MemberVO">
+    <select id="selectregionCnt" resultType="cat.vo.MemberVO.MemberCntVO">
         select upChildCareInstNm, crtrYm, sum(whlMbrCnt) as whlMbrCnt from babysitter_member
-        where 
-            upChildCareInstNm=#{region} 
-            and 
-            date_format(crtrYm,"%Y-%m-%d") = str_to_date(#{date}, "%Y-%m-%d")
-        group by upChildCareInstNm, crtrYm
+        where date_format(crtrYm,"%Y-%m-%d") = str_to_date('2020-03-01', "%Y-%m-%d")
+        group by upChildCareInstNm
     </select>
 </mapper>

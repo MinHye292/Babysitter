@@ -16,7 +16,7 @@ public class BabysitterMemberService {
     public void insertMember(MemberVO vo){
         mapper.insertMember(vo);
     }
-    public List<MemberCntVO> selectregionCnt(String region, String date){
-        return mapper.selectregionCnt(region, date);
+    public List<MemberCntVO> selectregionCnt(String date){
+        return mapper.selectregionCnt(date);
     }
 }

@@ -20,30 +20,43 @@
     <div class="container">
         <%@include file="/WEB-INF/views/includes/menu.jsp"%>
         <div class="dashboard_area">
-            <select id="babysitterRegionCnt">
-                <option value="서울특별시 건강가정지원센터">서울</option>
-                <option value="대구광역시 광역거점">대구</option>
-                <option value="강원도 광역거점">강원</option>
-                <option value="경기도 광역거점">경기</option>
-                <option value="경상남도 건강가정지원센터">경남</option>
-                <option value="경상북도 광역거점">경북</option>
-                <option value="충청남도 광역거점">충남</option>
-                <option value="광주광역시 광역거점">광주</option>
-                <option value="대전광역시 광역거점">대전</option>
-                <option value="전라남도 광역거점">전남</option>
-                <option value="부산광역시 광역거점">부산</option>
-                <option value="전라북도 광역거점">전북</option>
-                <option value="세종특별자치시 광역거점">세종</option>
-                <option value="울산광역시 광역거점">울산</option>
-                <option value="충청북도 광역거점">충북</option>
-                <option value="인천광역시 광역거점">인천</option>
-                <option value="제주도 광역거점">제주</option>         
-            </select>
-            <select id="babysitterDate">
-                <c:forEach items="${dateList}" var="item">
-                    <option value="${item}">${item}</option>
-                </c:forEach>
-            </select>
+            <!-- <select id="babysitterRegionCnt">
+                <option value="서울특별시">서울</option>
+                <option value="대구광역시">대구</option>
+                <option value="강원도">강원</option>
+                <option value="경기도">경기</option>
+                <option value="경상남도">경남</option>
+                <option value="경상북도">경북</option>
+                <option value="충청남도">충남</option>
+                <option value="광주광역시">광주</option>
+                <option value="대전광역시">대전</option>
+                <option value="전라남도">전남</option>
+                <option value="부산광역시">부산</option>
+                <option value="전라북도">전북</option>
+                <option value="세종특별자치시">세종</option>
+                <option value="울산광역시">울산</option>
+                <option value="충청북도">충북</option>
+                <option value="인천광역시">인천</option>
+                <option value="제주도">제주</option>
+            </select> -->
+            <div class="content_area chart_content">
+                <select id="monthlyDate">
+                    <!-- <option value="2020-02-01">2020년 2월</option> -->
+                    <option value="2020-03-01">2020년 3월</option>
+                    <option value="2020-04-01">2020년 4월</option>
+                    <option value="2020-05-01">2020년 5월</option>
+                    <option value="2020-06-01">2020년 6월</option>
+                    <option value="2020-07-01">2020년 7월</option>
+                    <option value="2020-08-01">2020년 8월</option>
+                    <option value="2020-09-01">2020년 9월</option>
+                    <option value="2020-10-01">2020년 10월</option>
+                    <option value="2020-11-01">2020년 11월</option>
+                    <option value="2020-12-01">2020년 12월</option>
+                    <option value="2021-01-01">2021년 1월</option>
+                    <option value="2021-02-01">2021년 2월</option>
+                    <option value="2021-03-01">2021년 3월</option>
+                </select>
+            </div>
             <div class="content_area chart_content">
                 <h1>지역별 전체회원</h1>
                 <canvas id="regionMemberCnt" style="width:100%; height:100%;"></canvas>

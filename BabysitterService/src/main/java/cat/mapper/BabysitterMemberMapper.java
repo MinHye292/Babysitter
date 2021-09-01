@@ -10,5 +10,5 @@ import cat.vo.MemberVO.MemberVO;
 @Mapper
 public interface BabysitterMemberMapper {
     public void insertMember(MemberVO vo);
-    public List<MemberCntVO> selectregionCnt(String region, String date);
+    public List<MemberCntVO> selectregionCnt(String date);
 }

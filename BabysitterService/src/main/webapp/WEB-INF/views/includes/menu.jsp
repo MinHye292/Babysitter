@@ -21,7 +21,7 @@
                 <a href="/result">performance <span>실적현황</span></a>
             </li>
             <li>
-                <a href="#">member <span>회원현황</span></a>
+                <a href="/member">member <span>회원현황</span></a>
             </li>
             <li>
                 <a href="#">qualification <span>신청자격 및 요금표</span></a>

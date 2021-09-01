@@ -82,11 +82,19 @@ public class BabysitterMemberAPIController {
         return resultMap;
     }
     @GetMapping("/api/MemberCnt")
-    public Map<String, Object> getMemberCnt(@RequestParam String date, @RequestParam String region) {
+    public Map<String, Object> getMemberCnt(@RequestParam String date) {
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
 
-        List<MemberCntVO> list = service.selectregionCnt(region, date);
-        resultMap.put("list", list);
+        System.out.println(date);
+        
+        List<MemberCntVO> data1 = service.selectregionCnt(date);
+        System.out.println(data1.size());
+
+        for(int i=0; i<data1.size(); i++) {
+            System.out.println(data1.get(i));
+        }
+
+        resultMap.put("data1", data1);
 
         return resultMap;
     }
