@@ -14,7 +14,7 @@
             );
     </insert>
     <select id="selectMap" resultType="cat.vo.SitterVO.MapInfoVO">
-        select ctpvNm,childCareInstNm,rprsTelno,drtlnTelno,fxno,zip,addr,lot,lat
+        select seq,ctpvNm,childCareInstNm,rprsTelno,drtlnTelno,fxno,zip,addr,lot,lat
         from sitter where seq=#{seq}
     </select>
     <select id="selectProvider" resultType="cat.vo.SitterVO.ProviderVO">

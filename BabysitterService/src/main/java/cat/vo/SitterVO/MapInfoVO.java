@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class MapInfoVO {
+    private Integer seq;
     private String ctpvNm;
     private String childCareInstNm;
     private String rprsTelno;

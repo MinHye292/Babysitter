@@ -19,6 +19,7 @@
                     <td>No.</td>
                     <td>기관명</td>
                     <td>주소</td>
+                    <td>의견 보내기</td>
                 </tr>
             </thead>
             

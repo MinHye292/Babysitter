@@ -24,39 +24,51 @@
 	<script>
 		var container = document.getElementById('map');
 		var options = {
-			center: new kakao.maps.LatLng("lat", "lot"),
-			level: 3
+			center: new kakao.maps.LatLng("${data.lat}", "${data.lot}"),
+			level: 4
 		};
 		var map = new kakao.maps.Map(container, options);
+        addMarker(new kakao.maps.LatLng("${data.lat}", "${data.lot}"));
+        function addMarker(position) {
+            var marker = new kakao.maps.Marker({
+                position: position
+            });
+            marker.setMap(map);
+            
+        }
 	</script>
     <div class="content_area">
         <div>
+            <p>번호</p>
+            <p id="seq">${data.seq}</p>
+        </div>
+        <div>
             <p>시도명</p>
-            <p id="ctpvNm">강릉</p>
+            <p id="ctpvNm">${data.ctpvNm}</p>
         </div>
         <div>
             <p>아이돌봄 기관명</p>
-            <p id="childCareInstNm">강원 고성군 건강가정지원센터</p>
+            <p id="childCareInstNm">${data.childCareInstNm}</p>
         </div>
         <div>
             <p>대표 전화번호</p>
-            <p id="rprsTelno">033-655-4385</p>
+            <p id="rprsTelno">${data.rprsTelno}</p>
         </div>
         <div>
             <p>직통 전화번호</p>
-            <p id="drtlnTelno">033-655-4385</p>
+            <p id="drtlnTelno">${data.drtlnTelno}</p>
         </div>
         <div>
             <p>팩스번호</p>
-            <p id="fxno">033-655-7385</p>
+            <p id="fxno">${data.fxno}</p>
         </div>
         <div>
             <p>우편번호</p>
-            <p id="zip">25548</p>
+            <p id="zip">${data.zip}</p>
         </div>
         <div>
             <p>주소</p>
-            <p id="addr">강원도 강릉시 포남동</p>
+            <p id="addr">${data.addr}</p>
         </div>
     </div>
 </body>

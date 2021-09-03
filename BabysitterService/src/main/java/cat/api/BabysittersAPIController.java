@@ -90,7 +90,7 @@ public class BabysittersAPIController {
     }
     // /api/map?seq=1
     @GetMapping("/api/map")
-    public Map<String, Object> getMap(@RequestParam Integer seq) {
+    public Map<String, Object> getSitterMap(@RequestParam Integer seq) {
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
 
         MapInfoVO vo = service.selectMap(seq);
