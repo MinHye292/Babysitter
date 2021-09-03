@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class BabysitterMemberController {
     @GetMapping("/member")
     public String getTime() {
-        return "/member/member";
+        return "/main/member";
     }
 }

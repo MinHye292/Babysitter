@@ -15,6 +15,6 @@ public class BabysitterResultController {
     public String getTime(Model model) {
         model.addAttribute("dateList", service.selectBabysitterResultDates());
 
-        return "/result/result";
+        return "/main/result";
     }
 }

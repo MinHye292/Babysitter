@@ -24,4 +24,8 @@ public class MainController {
         session.invalidate();
         return "redirect:/";
     }
+    @GetMapping("/main")
+    public String getMain1() {
+        return "/main/main";
+    }
 }

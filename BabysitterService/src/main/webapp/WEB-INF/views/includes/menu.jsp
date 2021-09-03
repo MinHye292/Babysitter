@@ -17,22 +17,22 @@
         <a href="/" id="logo">Babysitter</a>
         <ul class="main_menu">
             <li>
-                <a href="/requestTime">request <span>신청현황</span></a>
+                <a href="/main">introduction <span>사업소개</span></a>
             </li>
             <li>
-                <a href="/result">performance <span>실적현황</span></a>
+                <a href="#">guidance <span>이용안내</span></a>
             </li>
             <li>
-                <a href="/member">member <span>회원현황</span></a>
+                <a href="/provider">provider <span>제공기관</span></a>
             </li>
             <li>
                 <a href="#">qualification <span>신청자격 및 요금표</span></a>
             </li>
             <li>
-                <a href="/provider">provider <span>서비스제공기관</span></a>
+                <a href="#">babysitter <span>아이돌보미</span></a>
             </li>
             <li>
-                <a href="#">babysitter <span>아이돌보미</span></a>
+                <a href="#">my page <span>마이페이지</span></a>
             </li>
         </ul>
         <div class="hc_top">

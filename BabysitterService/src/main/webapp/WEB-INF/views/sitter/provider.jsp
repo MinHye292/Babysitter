@@ -22,7 +22,6 @@
                     <td>의견 보내기</td>
                 </tr>
             </thead>
-            
         </table>
     </div>
     <div class="pager_area">
@@ -32,17 +31,5 @@
         <span class="total"></span>
         <button id="next">&gt;</button>
     </div>
-    <!-- <div>
-        <p>No.</p>
-        <p id="ctpvNm">강릉</p>
-    </div>
-    <div>
-        <p>기관이름</p>
-        <p id="childCareInstNm">강원 고성군 건강가정지원센터</p>
-    </div>
-    <div>
-        <p>주소</p>
-        <p id="rprsTelno">033-655-4385</p>
-    </div> -->
 </body>
 </html>

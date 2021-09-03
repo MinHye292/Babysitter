@@ -81,11 +81,6 @@ public class MemberAPIController {
         // resultMap에 담긴 member는 기본 형태가 Object타입이기 때문에,
         // (MemberInfoVO) 형 변환을 통해서 형태 변환을 하고 난 다음,
         // 멤버 변수에 접근해야 한다.
-        MemberInfoVO member = (MemberInfoVO)resultMap.get("member");
-        // if(member != null){
-        //     Integer cart_cnt = sc_service.selectCount(member.getMi_seq());
-        //     session.setAttribute("cart_cnt", cart_cnt);
-        // }
         return resultMap;
     }
     
