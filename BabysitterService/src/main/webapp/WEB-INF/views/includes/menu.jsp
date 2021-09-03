@@ -29,7 +29,7 @@
                 <a href="#">qualification <span>신청자격 및 요금표</span></a>
             </li>
             <li>
-                <a href="#">provider <span>서비스제공기관</span></a>
+                <a href="/provider">provider <span>서비스제공기관</span></a>
             </li>
             <li>
                 <a href="#">babysitter <span>아이돌보미</span></a>

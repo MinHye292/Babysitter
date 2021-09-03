@@ -238,7 +238,6 @@ public class BabysitterResultAPIController {
         return resultMap;
     }
 
-
     public static String getTagValue(String tag, Element elem) {
         if(elem.getElementsByTagName(tag).item(0) == null) return null;
         NodeList nlList = elem.getElementsByTagName(tag).item(0).getChildNodes();

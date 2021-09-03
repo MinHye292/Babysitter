@@ -60,30 +60,6 @@ public class BabysitterAPIController {
             Node node = nList.item(i);
             Element elem = (Element) node;
 
-            // System.out.println(getTagValue("crtrYm", elem));
-            // System.out.println(getTagValue("childCareInstNo", elem));
-            // System.out.println(getTagValue("childCareInstNm", elem));
-            // System.out.println(getTagValue("ilnsSrvcYn", elem));
-            // System.out.println(getTagValue("careDvsnNm", elem));
-            // System.out.println(getTagValue("srvcDvsfctnNm", elem));
-            // System.out.println(getTagValue("upChildCareInstNo", elem));
-            // System.out.println(getTagValue("upChildCareInstNm", elem));
-            // System.out.println(getTagValue("grAplyNocs", elem));
-            // System.out.println(getTagValue("hr02AplyNocs", elem));
-            // System.out.println(getTagValue("hr24AplyNocs", elem));
-            // System.out.println(getTagValue("hr46AplyNocs", elem));
-            // System.out.println(getTagValue("hr68AplyNocs", elem));
-            // System.out.println(getTagValue("hr810AplyNocs", elem));
-            // System.out.println(getTagValue("hr1012AplyNocs", elem));
-            // System.out.println(getTagValue("hr1214AplyNocs", elem));
-            // System.out.println(getTagValue("hr1416AplyNocs", elem));
-            // System.out.println(getTagValue("hr1618AplyNocs", elem));
-            // System.out.println(getTagValue("hr1820AplyNocs", elem));
-            // System.out.println(getTagValue("hr2022AplyNocs", elem));
-            // System.out.println(getTagValue("hr2224AplyNocs", elem));
-            // System.out.println(getTagValue("dataCrtYmd", elem));
-            // System.out.println("==========================================================");
-
             String childCareInstNo = getTagValue("childCareInstNo", elem);
             String childCareInstNm = getTagValue("childCareInstNm", elem);
             String ilnsSrvcYn = getTagValue("ilnsSrvcYn", elem);
