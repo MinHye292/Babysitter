@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-BabysitterServiceApplication<BabysitterService>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "cat.BabysitterServiceApplication",
+            "projectName": "BabysitterService",
+            "args": ""
+        }
+    ]
+}

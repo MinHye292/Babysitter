@@ -1,0 +1,20 @@
+.content_area {display: inline-block; width: 45%; height: 550px;
+padding-bottom: 100px;}
+.content_area:nth-child(2) {margin-right: 30px;}
+
+.right_area > h1 {
+    font-size: 36px;
+    font-weight: 700; text-align: center; padding-top:50px;
+    margin-bottom: 50px;
+}
+.chart_content h1 {
+    text-align: center; font-size: 24px; font-weight: 700;
+    margin-bottom: 30px;
+}
+
+#monthlyDate {
+    font-family: "Noto Sans KR";
+    font-size: 36px; font-weight: 700; padding: 0;
+    border: 0; border-bottom: 1px solid black;
+    cursor:pointer; outline:none;
+}

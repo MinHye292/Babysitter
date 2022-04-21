@@ -1,0 +1,32 @@
+.select_area {text-align: center;
+    padding-top: 30px; margin-bottom: 50px;
+}
+.select_area select {
+    font-size: 36px;
+    font-weight: 700;
+    border: 0; padding: 0;
+    outline:none;
+    border-bottom: 1px solid #000;
+    margin-right: 20px;
+    cursor:pointer;
+}
+.row {
+    font-size: 0;
+    margin-bottom: 100px;
+}
+.row > .chart_content {
+    display: inline-block; font-size: 16px; vertical-align: top;
+    text-align: center; width: 70%; margin-left: 5%;
+}
+.row > .dashboard_content {
+    width: 25%; font-size: 16px; display: inline-block;
+}
+.con_title {font-size: 18px; font-weight: 700; text-align: center; margin-bottom: 20px;}
+.con_number {font-size: 48px; text-align: center;}
+
+.child_num {background-color: #f7f7f7; width: 60%; margin: 0 auto; padding:20px 0;
+margin-top: 80px; border-radius: 5px; box-shadow:0 0 5px rgba(0,0,0,0.3)}
+
+.chart_content {height: 220px;}
+.chart_content h1 {font-size: 18px; font-weight: 700; margin-bottom: 20px;}
+.pie_chart {height: 190px;}

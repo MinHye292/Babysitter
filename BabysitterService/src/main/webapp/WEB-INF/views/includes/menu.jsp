@@ -9,38 +9,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="/assets/css/menu.css">
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/assets/js/menu.js"></script>
 </head>
 <body>
     <div class="left_menu">
-        <a href="/" id="logo">Babysitter</a>
+        <a href="/" id="logo">
+            <img src="http://placehold.it/250x50">
+        </a>
         <ul class="main_menu">
             <li>
-                <a href="/main">introduction <span>사업소개</span></a>
+                <!-- introduction -->
+                <a href="/main"> <span>사업소개</span></a>
             </li>
             <li>
-                <a href="#">guidance <span>이용안내</span></a>
+                <!-- guidance -->
+                <a href="#"> <span>이용안내</span></a>
             </li>
             <li>
-                <a href="/provider">provider <span>제공기관</span></a>
+                <!-- provider -->
+                <a href="/provider"> <span>제공기관</span></a>
             </li>
             <li>
-                <a href="#">qualification <span>신청자격 및 요금표</span></a>
+                <!-- qualification -->
+                <a href="#"> <span>신청자격 및 요금표</span></a>
             </li>
             <li>
-                <a href="#">babysitter <span>아이돌보미</span></a>
+                <!-- babysitter -->
+                <a href="#"> <span>아이돌보미</span></a>
             </li>
             <li>
-                <a href="#">my page <span>마이페이지</span></a>
+                <!-- page -->
+                <a href="#">my  <span>마이페이지</span></a>
             </li>
         </ul>
         <div class="hc_top">
             <div class="user_menu">
                 <c:if test="${member == null}">
-                    <a href="/login">로그인</a>
+                    <a href="/login">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>로그인</span>
+                    </a>
                     <span>|</span>
-                    <a href="/join">회원가입</a>
+                    <a href="/join">
+                        <i class="fas fa-user-plus"></i>
+                        <span>회원가입</span>
+                    </a>
                 </c:if>
                 <c:if test="${member != null}">
                     <a href="/member/order">
@@ -57,6 +73,45 @@
                 </c:if>
             </div>
         </div>
+    </div>
+    <div class="sub">
+        <ul>
+            <li>
+                <a href="#">사업 소개</a>
+            </li>
+            <li>
+                <a href="#">신청 현황</a>
+            </li>
+            <li>
+                <a href="#">실적 현황</a>
+            </li>
+            <li>
+                <a href="#">회원 현황</a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="#">요금표</a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="#">제공 기관 상세</a>
+            </li>
+        </ul>
+        <ul>
+            
+        </ul>
+        <ul>
+            <li>
+                <a href="#">회원 정보</a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="#">지원 방법</a>
+            </li>
+        </ul>
     </div>
 </body>
 </html>
